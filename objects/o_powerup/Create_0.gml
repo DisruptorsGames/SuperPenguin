@@ -1,6 +1,15 @@
 /// @description Init
-type = power_type.large;//choose(power_type.large, power_type.fire, power_type.ice);
-
-physics_apply_impulse(0, 0, choose(-5, 5), 0);
-
-phy_fixed_rotation = true;
+image_speed = 0;
+image_index = irandom(image_number - 1);
+type = power_type.null;
+switch (image_index)
+{
+	// fish / (mushroom)
+	case 0:
+		type = power_type.large;
+		break;
+	// krill / (fire flower)
+	case 1:
+		type = power_type.fire;
+		break;	
+}

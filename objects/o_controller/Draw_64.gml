@@ -15,8 +15,12 @@ if (global.debug)
 		+ "\nGame State: " + string(game != noone ? game.status : "???")
 		+ "\nDifficulty: " + string(game != noone ? game.difficulty : "???")
 		+ "\nOn Ground: " + string(instance_exists(o_player) ? o_player.on_ground : "???")
+		+ "\nPhysics: " + string(instance_exists(o_player) ? o_player.phy_active : "???")
+		+ "\nSliding: " + string(instance_exists(o_player) ? o_player.sliding : "???")
+		+ "\nSize: " + string(instance_exists(o_player) ? o_player.size : "???")
 		+ "\nScale: " + string(instance_exists(o_player) ? o_player.scale : "???")
-		+ "\nState: " + string(instance_exists(o_player) ? o_player.state : "???");
+		+ "\nState: " + string(instance_exists(o_player) ? o_player.state : "???")
+		+ "\nPowerup: " + string(instance_exists(o_player) ? (o_player.powerup != power_type.null) : "???");
 	
 	var gen = "";
 	if (instance_exists(o_generator))

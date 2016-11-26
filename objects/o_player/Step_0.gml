@@ -1,37 +1,36 @@
 /// @description Controls & Calculations
-
-// calculations
-size = abs(sprite_width * scale);
-running = abs(phy_speed_x) >= max_spd;
-image_speed = keyboard_check(left) || keyboard_check(right) ? 0.75 : 0;
+moving = keyboard_check(left) || keyboard_check(right);
+running = abs(phy_speed_x) >= max_spd - 1;
+sliding = running || (!on_ground && sliding);
+image_index = sliding ? 3 : (image_index > 2 ? 0 : image_index);
+image_speed = moving && !sliding ? 1 : 0;
 image_xscale = flip ? -scale : scale;
 image_yscale = scale;
+phy_speed_x = clamp(phy_speed_x, -max_spd, max_spd);
 
+// movement
 if (keyboard_check(left) && phy_active)
 {
-	physics_apply_local_force(spd, 0, -spd * phy_mass, 0);
+	physics_apply_local_force(spd, 1, -spd * phy_mass, 0);
 	flip = true;
 }
 else if (keyboard_check(right) && phy_active)
 {
-	physics_apply_local_force(-spd, 0, spd * phy_mass, 0);
+	physics_apply_local_force(-spd, 1, spd * phy_mass, 0);
 	flip = false;
 }
-else if (on_ground)
+else if (on_ground && phy_speed < 0.5 && !sliding)
 {
-	// ToDo: fix issue with rotation while sliding
-	if (abs(phy_speed_x) > max_spd / 2 && !keyboard_check(vk_anykey))
-		phy_rotation = flip ? 270 : 90;
-	else if (phy_speed < 1)
-		phy_speed_x = 0;
-	else
-		phy_rotation = 0;
+	image_index = 0;
+	phy_speed_x = 0;
 }
-	
-phy_speed_x = clamp(phy_speed_x, -max_spd, max_spd);
 
+// jump
 if (keyboard_check_pressed(jump) && on_ground)
-	physics_apply_local_impulse(0, 0, 0, running ? (-jump_amount * 1.25) : -jump_amount);
+{
+	sfx_play(sfx_jump);
+	physics_apply_local_impulse(0, 0, 0, running ? (-jump_amount * 1.15) : -jump_amount);
+}
 
 // CHEAT (move player to mouse)
 if (o_controller.manual && global.debug)

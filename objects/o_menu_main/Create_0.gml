@@ -1,5 +1,5 @@
 /// @description Init
-title = "Platformer";
+title = "Super Penguin";
 selection = 0;
 indicator = ">";
 

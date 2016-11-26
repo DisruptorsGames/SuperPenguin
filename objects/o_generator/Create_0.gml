@@ -1,7 +1,9 @@
 /// @description Init
 width = 32;
 height = 32;
-assets = layer_get_id("Assets");
+ground = layer_get_id("Ground");
+world = layer_get_id("World");
+background = layer_get_id("Background");
 clean = false;
 
 offset = width * max(o_controller.game.difficulty, 1);

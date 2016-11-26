@@ -17,7 +17,7 @@ draw_rectangle_color(0, ycenter - size, vw, ycenter + size, background, backgrou
 draw_rectangle_color(0, ycenter - size, vw, ycenter + size, foreground, foreground, foreground, foreground, true);
 
 draw_set_font(f_title);
-draw_text_color((vw - string_width(title)) / 2, iy, title, foreground, foreground, c_gray, c_gray, 1);
+draw_text_color((vw - string_width(title)) / 2, iy, title, foreground, foreground, foreground, foreground, 1);
 draw_set_font(f_menu);
-draw_text_color((vw - string_width(message)) / 2, iy + offset, message, c_gray, c_gray, foreground, foreground, 1);
+draw_text_color((vw - string_width(message)) / 2, iy + offset, message, foreground, foreground, foreground, foreground, 1);
 draw_set_font(-1);

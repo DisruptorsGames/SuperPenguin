@@ -4,12 +4,14 @@ countdown = -1;
 color = c_white;
 
 // game
+underground = irandom(100) < 30;
 saved_powerup = power_type.null;
 status = game_state.null;
 max_lives = 3;
-difficulty = 0;
+difficulty = 1;
 timer = seconds(300 - difficulty * 10);
 level = 1;
+world = 1;
 oneup = level * 100;
 lives = max_lives;
 score = 0;

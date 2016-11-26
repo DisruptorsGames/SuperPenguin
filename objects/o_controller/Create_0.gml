@@ -8,15 +8,17 @@
 enum game_state { null, win, lose, respawn }
 enum player_state { dead, alive, falling, oot }
 enum power_type { null, shrink, large, fire, ice }
+enum callout_type { null, food }
 
 global.debug = false;
+global.sound = true;
 
 //flags = phy_debug_render_coms | phy_debug_render_shapes;
 flags = phy_debug_render_coms 
     | phy_debug_render_aabb 
     | phy_debug_render_collision_pairs 
     | phy_debug_render_obb;
-
+	
 randomize();
 
 game = noone;

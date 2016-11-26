@@ -1,6 +1,7 @@
 /// @description Death!
 if (state != player_state.alive)
 {
+	sfx_play(sfx_die);
 	lives--;
 
 	if (lives == 0)

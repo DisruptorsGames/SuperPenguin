@@ -38,7 +38,7 @@
         },
         {
             "__type": "GMRAssetLayer_Model:#YoYoStudio.MVCFormat",
-            "id": "63fedc72-9583-442a-98ea-ca39dea1cbd2",
+            "id": "dd8b7fc1-b175-4426-9922-65ef208e1064",
             "modelName": "GMRAssetLayer",
             "mvc": "1.0",
             "depth": 100,
@@ -53,7 +53,31 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Assets",
+            "name": "Ground",
+            "userdefined_depth": false,
+            "visible": true,
+            "assets": [
+                
+            ]
+        },
+        {
+            "__type": "GMRAssetLayer_Model:#YoYoStudio.MVCFormat",
+            "id": "63fedc72-9583-442a-98ea-ca39dea1cbd2",
+            "modelName": "GMRAssetLayer",
+            "mvc": "1.0",
+            "depth": 200,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+                
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "name": "World",
             "userdefined_depth": false,
             "visible": true,
             "assets": [
@@ -65,7 +89,7 @@
             "id": "6b7d35a5-c49f-4e1f-9c8a-514114922297",
             "modelName": "GMRBackgroundLayer",
             "mvc": "1.0",
-            "depth": 200,
+            "depth": 300,
             "hierarchyFrozen": false,
             "hierarchyVisible": true,
             "inheritLayerDepth": false,

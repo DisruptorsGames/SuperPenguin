@@ -10,4 +10,17 @@ game.countdown = argument2 == -1
 	: argument2;
 // ToDo: add bosses?
 if (game.status == game_state.win)
-	game.level++;
+{
+	if (game.level == 5)
+	{
+		game.world++;
+		game.level = 1;
+		game.difficulty = 1;
+	}
+	else
+	{
+		game.level++;
+		game.difficulty += 0.5;
+	}
+	game.underground = irandom(100) < 30;
+}

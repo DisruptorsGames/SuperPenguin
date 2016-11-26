@@ -6,7 +6,6 @@ if (drop_flag)
 	else if (flagy >= y + sprite_height / 2 - 1)
 	{
 		change_state(game_state.win, choose("Great Job!", "Nice Moves!", "Gratz!", "w1n!"), seconds(5));
-		o_controller.game.difficulty++;
 		with (o_player) { instance_destroy(); }
 		instance_destroy();
 	}
