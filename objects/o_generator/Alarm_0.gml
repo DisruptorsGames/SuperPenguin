@@ -48,24 +48,25 @@ var diff = o_controller.game.difficulty,
 	snow = merge_color(mud, c_white, 0.75);
 if (x + width < room_width)
 {
-	var by = bottom / width, xx = x / height,
-		on_ground = (random(100) > diff * 10 || x < offset);
+	var sw = sprite_get_width(s_wall) / 2, sh = sprite_get_height(s_wall) / 2,
+		by = bottom / width, xx = x / height,
+		on_ground = (random(100) > diff * 10 || x < offset) 
+			&& place_free(x + sw, bottom + sh);
 	
 	// walls
 	if (on_ground)
 	{
-	    var sw = sprite_get_width(s_wall) / 2, sh = sprite_get_height(s_wall) / 2,
-			wall = instance_create_depth(x + sw, bottom + sh, depth, o_wall),
-			bg = layer_sprite_create_ext(background, x, bottom, s_tiles, 0, 0, under ? o_controller.darker : snow),
+	    var bg = layer_sprite_create_ext(background, x, bottom, s_tiles, 0, 0, under ? o_controller.darker : snow),
 			fg = layer_sprite_create_ext(ground, x, bottom, s_tiles, 2, 0, mud);
+		
+		instance_create_depth(x + sw, bottom + sh, depth, o_wall);
 		
 		if (!under)
 		{
 			// clouds
 			if (irandom(100) < 15)
 			{
-				var w = sprite_get_width(s_cloud), h = sprite_get_height(s_cloud), 
-					ind = irandom(sprite_get_number(s_cloud) - 1),
+				var ind = irandom(sprite_get_number(s_cloud) - 1),
 					cloud = layer_sprite_create_ext(world, x + sw, random_range(0, bottom - height * 4), s_cloud, ind, 0, snow);
 				layer_sprite_xscale(cloud, random(3) + 1);
 				layer_sprite_yscale(cloud, random(3) + 1);
@@ -74,8 +75,7 @@ if (x + width < room_width)
 			// trees
 			if (irandom(100) < 10)
 			{
-				var w = sprite_get_width(s_tree), h = sprite_get_height(s_tree), 
-					ind = irandom(sprite_get_number(s_tree) - 1);
+				var ind = irandom(sprite_get_number(s_tree) - 1);
 				layer_sprite_create_ext(world, x + sw, bottom + 4, s_tree, ind, 0, snow);
 			}
 		}

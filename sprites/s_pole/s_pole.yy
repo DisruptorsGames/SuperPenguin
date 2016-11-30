@@ -12,7 +12,7 @@
     "bbox_top": 0,
     "bboxmode": 0,
     "colkind": 0,
-    "coltolerance": 0,
+    "coltolerance": 32,
     "frames": [
         {
             "id": "60b7f405-17cb-4e9e-8234-bd37a75d9691",
@@ -53,7 +53,7 @@
     ],
     "playbackSpeed": 15,
     "playbackSpeedType": 0,
-    "sepmasks": false,
+    "sepmasks": true,
     "swatchColours": null,
     "textureGroup": 0,
     "type": 0,

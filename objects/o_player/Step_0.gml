@@ -1,7 +1,7 @@
 /// @description Controls & Calculations
 moving = keyboard_check(left) || keyboard_check(right);
 running = abs(phy_speed_x) >= max_spd - 1;
-sliding = running || (!on_ground && sliding);
+sliding = running || (abs(phy_speed_x) > 0 && sliding);
 image_index = sliding ? 3 : (image_index > 2 ? 0 : image_index);
 image_speed = moving && !sliding ? 1 : 0;
 image_xscale = flip ? -scale : scale;
@@ -11,15 +11,15 @@ phy_speed_x = clamp(phy_speed_x, -max_spd, max_spd);
 // movement
 if (keyboard_check(left) && phy_active)
 {
-	physics_apply_local_force(spd, 1, -spd * phy_mass, 0);
+	physics_apply_local_force(spd, 0, -spd * phy_mass, 0);
 	flip = true;
 }
 else if (keyboard_check(right) && phy_active)
 {
-	physics_apply_local_force(-spd, 1, spd * phy_mass, 0);
+	physics_apply_local_force(-spd, 0, spd * phy_mass, 0);
 	flip = false;
 }
-else if (on_ground && phy_speed < 0.5 && !sliding)
+else if (on_ground && phy_speed < 0.75 && !sliding)
 {
 	image_index = 0;
 	phy_speed_x = 0;

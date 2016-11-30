@@ -25,7 +25,7 @@ for (var i = 0; i < lives; i++)
 var cx = vw / 2, size = sprite_get_width(s_powerup) * 2;
 for (var i = 0; i < 8; i++)
 {
-	draw_rectangle_color(cx + i, 16 + i, cx + size - i, 16 + size - i, color, color, color, color, true);
+	draw_rectangle_color(cx - size / 2 + i, 16 + i, cx - size / 2 + size - i, 16 + size - i, color, color, color, color, true);
 }
 if (saved_powerup != power_type.null)
 	draw_sprite_ext(s_powerup, 0, cx + size / 2, 16 + size / 2, 2, 2, 0, color, 0.75);
@@ -34,7 +34,7 @@ draw_set_font(f_hud);
 
 // game time
 var game_time = "TIME\n" + string(round(timer / room_speed));
-draw_text_color(vw / 2 + string_width(game_time) + 16, 16, game_time, color, color, color, color, 1);
+draw_text_color(cx + string_width(game_time), 16, game_time, color, color, color, color, 1);
 
 // score
 var total_coins = "X" + string_replace_all(string_format(score, 4, 0), " ", "0"),

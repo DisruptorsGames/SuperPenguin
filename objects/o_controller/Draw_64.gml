@@ -19,8 +19,7 @@ if (global.debug)
 		+ "\nSliding: " + string(instance_exists(o_player) ? o_player.sliding : "???")
 		+ "\nSize: " + string(instance_exists(o_player) ? o_player.size : "???")
 		+ "\nScale: " + string(instance_exists(o_player) ? o_player.scale : "???")
-		+ "\nState: " + string(instance_exists(o_player) ? o_player.state : "???")
-		+ "\nPowerup: " + string(instance_exists(o_player) ? (o_player.powerup != power_type.null) : "???");
+		+ "\nSpeed: " + string(instance_exists(o_player) ? o_player.phy_speed_x : "???");
 	
 	var gen = "";
 	if (instance_exists(o_generator))
